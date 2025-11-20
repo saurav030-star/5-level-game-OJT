@@ -1,0 +1,99 @@
+:root {
+  --bg: #f7f7fb;
+  --card: #ffffff;
+  --accent: #1f6feb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+}
+
+.container {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.panel {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+#question-area {
+  min-height: 200px;
+  margin-top: 12px;
+}
+
+.option {
+  display: block;
+  margin: 6px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.focus {
+  outline: 3px solid rgba(31, 111, 235, 0.2);
+}
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="search"] {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-left: 6px;
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+  
