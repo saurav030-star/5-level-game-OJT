@@ -1,99 +1,226 @@
-:root {
-  --bg: #f7f7fb;
-  --card: #ffffff;
-  --accent: #1f6feb;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
-  margin: 0;
-  background: var(--bg);
-  color: #111;
-}
-
-.container {
-  max-width: 800px;
-  margin: 24px auto;
-  padding: 16px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.panel {
-  background: var(--card);
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-}
-
-.controls {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:disabled {
-  opacity: 0.5;
-}
-
-#question-area {
-  min-height: 200px;
-  margin-top: 12px;
-}
-
-.option {
-  display: block;
-  margin: 6px 0;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.focus {
-  outline: 3px solid rgba(31, 111, 235, 0.2);
-}
-
-.footer {
-  margin-top: 18px;
-  text-align: center;
-  color: #555;
-  font-size: 0.9rem;
-}
-
-label {
-  font-weight: 600;
-}
-
-input[type="search"] {
-  padding: 6px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-left: 6px;
-}
-
-@media (max-width: 520px) {
-  .container {
-    padding: 10px;
-  }
-}
-
-  
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a; /* Dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #f0f0f0; /* Light text for contrast */
+        }
+        .game-card {
+            width: 100%;
+            max-width: 500px;
+            background-color: #000000; /* Pure black card */
+            border: 1px solid #333; /* Darker border */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4); /* Red glow effect */
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+        header {
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #ff0000; /* Bright red for title */
+            margin: 0;
+        }
+        .subheader {
+            font-size: 10px;
+            color: #f0f0f0; /* Light text */
+            margin-top: 2px;
+        }
+        .lives {
+            background-color: #440000; /* Darker red background */
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #ff5555; /* Lighter red for lives text */
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 5px;
+            background-color: #333;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #ff0000; /* Bright red progress */
+            width: 0%; /* Start at 0% */
+            transition: width 0.5s;
+        }
+        main {
+            flex-grow: 1;
+            padding: 30px;
+            position: relative;
+        }
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #000000; /* Black screen background */
+            color: #f0f0f0; /* Light text on screens */
+        }
+        #level-container {
+            display: none; /* Hide level-container by default */
+            position: static; /* Simple flow in main */
+        }
+        #result-screen {
+            display: none; /* Hide result-screen by default */
+            z-index: 20;
+        }
+        .start-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #ff0000; /* Red icon background */
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .start-button {
+            padding: 15px 30px;
+            background-color: #ff0000; /* Red button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
+        }
+        .start-button:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .level-type {
+            background-color: #333; /* Dark background for type */
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            color: #f0f0f0; /* Light text */
+            font-weight: bold;
+        }
+        .level-counter {
+            font-size: 36px;
+            color: #666; /* Subtler gray for counter */
+            font-weight: bold;
+        }
+        .puzzle-content {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        .level-instruction {
+            color: #ff5555; /* Lighter red for instruction */
+            background-color: #440000; /* Darker red background */
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        #options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: auto;
+            width: 100%;
+        }
+        @media (min-width: 600px) {
+            #options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .option-button {
+            padding: 15px;
+            border: 2px solid #555; /* Dark gray border */
+            border-radius: 8px;
+            background-color: #222; /* Dark background for options */
+            color: #f0f0f0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .option-button:hover {
+            background-color: #440000; /* Darker red on hover */
+            border-color: #ff0000; /* Red border on hover */
+        }
+        .result-icon-bg {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 40px;
+            background-color: #ff0000; /* Red for victory/loss icon background */
+            color: white; /* White icon */
+        }
+        #result-icon {
+            color: white; /* Ensure icon is white */
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+        .stat-box {
+            background-color: #111; /* Darker background for stats */
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .stat-label {
+            font-size: 10px;
+            color: #888; /* Gray label */
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        #final-score { color: #ff0000; } /* Red score */
+        #final-level { color: #ff5555; } /* Lighter red for levels */
+        .try-again-button {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            border: 2px solid #ff0000; /* Red border */
+            border-radius: 8px;
+            background-color: #000; /* Black background */
+            color: #ff0000; /* Red text */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .try-again-button:hover {
+            background-color: #ff0000; /* Red background on hover */
+            color: white; /* White text on hover */
+        }
